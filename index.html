@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciResearch8 - Become a Real-World Researcher in 8 Weeks</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script defer src="assets/js/main.js"></script>
+  <style>
+    /* Background Animations */
+    .background-animations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(0, 255, 241, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s linear infinite;
+    }
+
+    .floating-particle:nth-child(1) {
+      width: 4px;
+      height: 4px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+      animation-duration: 25s;
+    }
+
+    .floating-particle:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      top: 20%;
+      left: 80%;
+      animation-delay: 2s;
+      animation-duration: 30s;
+    }
+
+    .floating-particle:nth-child(3) {
+      width: 3px;
+      height: 3px;
+      top: 60%;
+      left: 20%;
+      animation-delay: 5s;
+      animation-duration: 22s;
+    }
+
+    .floating-particle:nth-child(4) {
+      width: 5px;
+      height: 5px;
+      top: 80%;
+      left: 70%;
+      animation-delay: 8s;
+      animation-duration: 28s;
+    }
+
+    .floating-particle:nth-child(5) {
+      width: 4px;
+      height: 4px;
+      top: 40%;
+      left: 90%;
+      animation-delay: 12s;
+      animation-duration: 35s;
+    }
+
+    .floating-particle:nth-child(6) {
+      width: 6px;
+      height: 6px;
+      top: 70%;
+      left: 5%;
+      animation-delay: 15s;
+      animation-duration: 26s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .moving-gradient {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(0, 255, 241, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(162, 89, 255, 0.1) 0%, transparent 50%);
+      animation: moveGradient 30s ease-in-out infinite;
+    }
+
+    @keyframes moveGradient {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      25% {
+        transform: translate(-30%, -70%) rotate(90deg);
+      }
+      50% {
+        transform: translate(-70%, -30%) rotate(180deg);
+      }
+      75% {
+        transform: translate(-20%, -80%) rotate(270deg);
+      }
+    }
+
+    .pulsing-circles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pulse-circle {
+      position: absolute;
+      border: 2px solid rgba(0, 255, 241, 0.2);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    .pulse-circle:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .pulse-circle:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 65%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .pulse-circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 25%;
+      animation-delay: 4s;
+    }
+
+    .pulse-circle:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 35%;
+      right: 25%;
+      animation-delay: 6s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.1;
+      }
+    }
+
+    .rotating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .rotating-shape {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(0, 255, 241, 0.3);
+      animation: rotate 15s linear infinite;
+    }
+
+    .rotating-shape:nth-child(1) {
+      top: 25%;
+      left: 85%;
+      border-radius: 50%;
+      animation-delay: 0s;
+    }
+
+    .rotating-shape:nth-child(2) {
+      top: 75%;
+      left: 15%;
+      transform: rotate(45deg);
+      animation-delay: 3s;
+    }
+
+    .rotating-shape:nth-child(3) {
+      top: 45%;
+      left: 5%;
+      border-radius: 50%;
+      animation-delay: 6s;
+    }
+
+    .rotating-shape:nth-child(4) {
+      top: 85%;
+      right: 20%;
+      transform: rotate(30deg);
+      animation-delay: 9s;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #e8e8ff;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .cta-primary {
+      background: linear-gradient(45deg, #00fff1, #a259ff);
+      color: #000;
+      border: none;
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: #00fff1;
+      border: 2px solid #00fff1;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 255, 241, 0.3);
+    }
+
+    /* Program Overview */
+    .program-overview {
+      padding: 4rem 2rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .overview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .overview-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .overview-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .overview-header p {
+      font-size: 1.2rem;
+      color: #e8e8ff;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .benefit-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 255, 241, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 241, 0.5);
+      box-shadow: 0 15px 35px rgba(0, 255, 241, 0.2);
+    }
+
+    .benefit-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .benefit-card h3 {
+      color: #f0f0ff;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .benefit-card p {
+      color: #e8e8ff;
+      line-height: 1.6;
+    }
+
+    /* Curriculum Preview */
+    .curriculum-preview {
+      margin: 4rem 0;
+    }
+
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .week-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 241, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .week-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 255, 241, 0.5);
+      box-shadow: 0 10px 25px rgba(0, 255, 241, 0.2);
+    }
+
+    .week-number {
+      background: linear-gradient(45deg, #00fff1, #a259ff);
+      color: #000;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .week-card h4 {
+      color: #f0f0ff;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .week-card p {
+      color: #e8e8ff;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Interactive Elements */
+    .interactive-section {
+      padding: 4rem 2rem;
+      background: rgba(0, 255, 241, 0.05);
+    }
+
+    .interactive-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .interactive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .interactive-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 241, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .interactive-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 241, 0.5);
+      box-shadow: 0 15px 35px rgba(0, 255, 241, 0.2);
+    }
+
+    .interactive-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .interactive-card h3 {
+      color: #f0f0ff;
+      margin-bottom: 1rem;
+    }
+
+    .interactive-card p {
+      color: #e8e8ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .interactive-btn {
+      background: linear-gradient(45deg, #00fff1, #a259ff);
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .interactive-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 255, 241, 0.3);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .hero-content h1 {
+        font-size: 3.5rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+      
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .curriculum-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .hero-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+      
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 1rem;
+      }
+      
+      .benefit-card {
+        padding: 1.5rem;
+      }
+      
+      .benefit-card h3 {
+        font-size: 1.5rem;
+      }
+      
+      .curriculum-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 1rem;
+      }
+      
+      .curriculum-card {
+        padding: 1.5rem;
+      }
+      
+      .curriculum-card h3 {
+        font-size: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      
+      .floating-particle:nth-child(1) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(2) { width: 4px; height: 4px; }
+      .floating-particle:nth-child(3) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(4) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(5) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(6) { width: 4px; height: 4px; }
+      
+      .pulse-circle:nth-child(1) { width: 60px; height: 60px; }
+      .pulse-circle:nth-child(2) { width: 80px; height: 80px; }
+      .pulse-circle:nth-child(3) { width: 50px; height: 50px; }
+      .pulse-circle:nth-child(4) { width: 70px; height: 70px; }
+      
+      .rotating-shape {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+      }
+      
+      .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      .hero-buttons {
+        gap: 0.8rem;
+      }
+      
+      .hero-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      .benefits-grid {
+        margin: 1.5rem 0.5rem;
+        gap: 1rem;
+      }
+      
+      .benefit-card {
+        padding: 1rem;
+      }
+      
+      .benefit-card h3 {
+        font-size: 1.3rem;
+      }
+      
+      .benefit-card p {
+        font-size: 0.9rem;
+      }
+      
+      .curriculum-grid {
+        margin: 1.5rem 0.5rem;
+        gap: 1rem;
+      }
+      
+      .curriculum-card {
+        padding: 1rem;
+      }
+      
+      .curriculum-card h3 {
+        font-size: 1.3rem;
+      }
+      
+      .curriculum-card p {
+        font-size: 0.9rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .floating-particle:nth-child(1) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(2) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(3) { width: 1px; height: 1px; }
+      .floating-particle:nth-child(4) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(5) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(6) { width: 3px; height: 3px; }
+      
+      .pulse-circle:nth-child(1) { width: 40px; height: 40px; }
+      .pulse-circle:nth-child(2) { width: 60px; height: 60px; }
+      .pulse-circle:nth-child(3) { width: 35px; height: 35px; }
+      .pulse-circle:nth-child(4) { width: 50px; height: 50px; }
+      
+      .rotating-shape {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero-content p {
+        font-size: 0.8rem;
+      }
+      
+      .hero-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+      }
+      
+      .benefit-card h3 {
+        font-size: 1.2rem;
+      }
+      
+      .benefit-card p {
+        font-size: 0.8rem;
+      }
+      
+      .curriculum-card h3 {
+        font-size: 1.2rem;
+      }
+      
+      .curriculum-card p {
+        font-size: 0.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .section-subtitle {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Landscape orientation adjustments */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        min-height: 100vh;
+        padding: 1rem 0;
+      }
+      
+      .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: row;
+        gap: 1rem;
+      }
+      
+      .hero-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .floating-particle {
+        transform: scale(0.8);
+      }
+      
+      .pulse-circle {
+        transform: scale(0.9);
+      }
+      
+      .rotating-shape {
+        transform: scale(0.8);
+      }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .floating-particle,
+      .pulse-circle,
+      .rotating-shape,
+      .moving-gradient {
+        animation: none;
+      }
+      
+      .hero-content,
+      .benefit-card,
+      .curriculum-card {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .hero-btn:hover,
+      .benefit-card:hover,
+      .curriculum-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      
+      .hero-btn:active,
+      .benefit-card:active,
+      .curriculum-card:active {
+        transform: scale(0.98);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animations -->
+  <div class="background-animations">
+    <div class="moving-gradient"></div>
+    <div class="pulsing-circles">
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+    </div>
+    <div class="rotating-shapes">
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+    </div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+  </div>
+
+  <nav class="navbar glassy">
+    <div class="logo neon-text">Solve<span class="accent">X</span></div>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="overview.html">Program Overview</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="neon-text">Become a Real-World Researcher in 8 Weeks</h1>
+      <p>Transform your curiosity into impactful scientific research. Learn by doing with hands-on projects, expert guidance, and real-world applications. No experience needed—just your passion for discovery.</p>
+      <div class="cta-buttons">
+        <a href="overview.html" class="cta-btn cta-primary">Start Your Research Journey</a>
+        <a href="#journey" class="cta-btn cta-secondary">See How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Overview -->
+  <section class="program-overview">
+    <div class="overview-container">
+      <div class="overview-header">
+        <h2 class="neon-text">Why Choose SolveX?</h2>
+        <p>Our program is designed to make scientific research accessible, engaging, and impactful for every student.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon" style="color: #00fff1;">🎯</div>
+          <h3>Learn by Doing</h3>
+          <p>Every week includes hands-on activities and real research tasks. You'll build your own project from start to finish.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon" style="color: #00fff1;">🚀</div>
+          <h3>Real-World Impact</h3>
+          <p>Create solutions for actual problems in your community. Your research can make a difference beyond the classroom.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon" style="color: #00fff1;">💡</div>
+          <h3>Expert Guidance</h3>
+          <p>Get personalized mentorship and feedback throughout your journey. We're here to support your success.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon" style="color: #00fff1;">🏆</div>
+          <h3>Competition Ready</h3>
+          <p>Perfect for science fairs, competitions, and college applications. Build a portfolio that stands out.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon" style="color: #00fff1;">🔬</div>
+          <h3>No Experience Needed</h3>
+          <p>Start from scratch with our step-by-step guidance. We'll teach you everything you need to know.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon" style="color: #00fff1;">📊</div>
+          <h3>Professional Skills</h3>
+          <p>Develop critical thinking, data analysis, and presentation skills that will serve you in any career.</p>
+        </div>
+      </div>
+
+      <!-- Curriculum Preview -->
+      <div class="curriculum-preview" id="journey">
+        <h3 style="color: #f0f0ff; text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">Your 8-Week Journey</h3>
+        <div class="curriculum-grid">
+          <div class="week-card" onclick="window.location.href='week1.html'">
+            <div class="week-number">1</div>
+            <h4>Research Foundations</h4>
+            <p>Understand what research is and how it shapes our world</p>
+          </div>
+
+          <div class="week-card" onclick="window.location.href='week2.html'">
+            <div class="week-number">2</div>
+            <h4>Research Questions</h4>
+            <p>Transform curiosity into focused, testable questions</p>
+          </div>
+
+          <div class="week-card" onclick="window.location.href='week3.html'">
+            <div class="week-number">3</div>
+            <h4>Research Planning</h4>
+            <p>Design your investigation and choose your methods</p>
+          </div>
+
+          <div class="week-card" onclick="window.location.href='week4.html'">
+            <div class="week-number">4</div>
+            <h4>Data Gathering</h4>
+            <p>Collect and analyze your research data</p>
+          </div>
+
+          <div class="week-card" onclick="window.location.href='week5.html'">
+            <div class="week-number">5</div>
+            <h4>Prototyping</h4>
+            <p>Build solutions based on your findings</p>
+          </div>
+
+          <div class="week-card" onclick="window.location.href='week6.html'">
+            <div class="week-number">6</div>
+            <h4>Documentation</h4>
+            <p>Write your research report and prepare presentations</p>
+          </div>
+
+          <div class="week-card" onclick="window.location.href='week7.html'">
+            <div class="week-number">7</div>
+            <h4>Presentation</h4>
+            <p>Share your findings and receive feedback</p>
+          </div>
+
+          <div class="week-card" onclick="window.location.href='week8.html'">
+            <div class="week-number">8</div>
+            <h4>Real-World Impact</h4>
+            <p>Apply your research to create positive change</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Elements -->
+  <section class="interactive-section">
+    <div class="interactive-container">
+      <h2 class="neon-text">Ready to Get Started?</h2>
+      <p style="color: #e8e8ff; font-size: 1.2rem; margin-bottom: 2rem;">Choose your path and begin your research journey today.</p>
+
+      <div class="interactive-grid">
+        <a href="week1.html" class="interactive-card">
+          <div class="interactive-icon" style="color: #00fff1;">🚀</div>
+          <h3>Start Week 1</h3>
+          <p>Begin your research journey with our foundational lessons and hands-on activities.</p>
+          <span class="interactive-btn">Get Started</span>
+        </a>
+
+        <a href="resources.html" class="interactive-card">
+          <div class="interactive-icon" style="color: #00fff1;">📚</div>
+          <h3>Browse Resources</h3>
+          <p>Access real student projects, templates, and examples to guide your research.</p>
+          <span class="interactive-btn">View Resources</span>
+        </a>
+
+        <a href="contact.html" class="interactive-card">
+          <div class="interactive-icon" style="color: #00fff1;">💬</div>
+          <h3>Get Help</h3>
+          <p>Connect with mentors, ask questions, and get personalized guidance for your project.</p>
+          <span class="interactive-btn">Contact Us</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+        <footer class="footer glassy">
+    <span>© 2025 SolveX. All rights reserved.</span>
+  </footer>
+</body>
+</html>

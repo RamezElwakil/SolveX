@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 8 – From Research to Real-World Impact | SciResearch8</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/background-animations.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/week8.js"></script>
+  <style>
+    /* Background Animations */
+    .background-animations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(0, 255, 241, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s linear infinite;
+    }
+
+    .floating-particle:nth-child(1) {
+      width: 4px;
+      height: 4px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+      animation-duration: 25s;
+    }
+
+    .floating-particle:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      top: 20%;
+      left: 80%;
+      animation-delay: 2s;
+      animation-duration: 30s;
+    }
+
+    .floating-particle:nth-child(3) {
+      width: 3px;
+      height: 3px;
+      top: 60%;
+      left: 20%;
+      animation-delay: 5s;
+      animation-duration: 22s;
+    }
+
+    .floating-particle:nth-child(4) {
+      width: 5px;
+      height: 5px;
+      top: 80%;
+      left: 70%;
+      animation-delay: 8s;
+      animation-duration: 28s;
+    }
+
+    .floating-particle:nth-child(5) {
+      width: 4px;
+      height: 4px;
+      top: 40%;
+      left: 90%;
+      animation-delay: 12s;
+      animation-duration: 35s;
+    }
+
+    .floating-particle:nth-child(6) {
+      width: 6px;
+      height: 6px;
+      top: 70%;
+      left: 5%;
+      animation-delay: 15s;
+      animation-duration: 26s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .moving-gradient {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(0, 255, 241, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(162, 89, 255, 0.1) 0%, transparent 50%);
+      animation: moveGradient 30s ease-in-out infinite;
+    }
+
+    @keyframes moveGradient {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      25% {
+        transform: translate(-30%, -70%) rotate(90deg);
+      }
+      50% {
+        transform: translate(-70%, -30%) rotate(180deg);
+      }
+      75% {
+        transform: translate(-20%, -80%) rotate(270deg);
+      }
+    }
+
+    .pulsing-circles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pulse-circle {
+      position: absolute;
+      border: 2px solid rgba(0, 255, 241, 0.2);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    .pulse-circle:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .pulse-circle:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 65%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .pulse-circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 25%;
+      animation-delay: 4s;
+    }
+
+    .pulse-circle:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 35%;
+      right: 25%;
+      animation-delay: 6s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.1;
+      }
+    }
+
+    .rotating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .rotating-shape {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(0, 255, 241, 0.3);
+      animation: rotate 15s linear infinite;
+    }
+
+    .rotating-shape:nth-child(1) {
+      top: 25%;
+      left: 85%;
+      border-radius: 50%;
+      animation-delay: 0s;
+    }
+
+    .rotating-shape:nth-child(2) {
+      top: 75%;
+      left: 15%;
+      transform: rotate(45deg);
+      animation-delay: 3s;
+    }
+
+    .rotating-shape:nth-child(3) {
+      top: 45%;
+      left: 5%;
+      border-radius: 50%;
+      animation-delay: 6s;
+    }
+
+    .rotating-shape:nth-child(4) {
+      top: 85%;
+      right: 20%;
+      transform: rotate(30deg);
+      animation-delay: 9s;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Week 8 Specific Styles */
+    .week-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .week-content {
+      text-align: center;
+      z-index: 2;
+      opacity: 0;
+      animation: slideUpFade 1.5s ease-out 0.5s forwards;
+    }
+
+    @keyframes slideUpFade {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .week-section {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 255, 241, 0.2);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .week-section h2 {
+      color: #00fff1;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(0, 255, 241, 0.5);
+    }
+
+    .week-section h3 {
+      color: #a259ff;
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      text-shadow: 0 0 15px rgba(162, 89, 255, 0.5);
+    }
+
+    .week-section p {
+      color: #e8e8ff;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(232, 232, 255, 0.3);
+    }
+
+    .week-section ul {
+      color: #e8e8ff;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+    }
+
+    .week-section li {
+      margin-bottom: 0.8rem;
+      text-shadow: 0 0 10px rgba(232, 232, 255, 0.3);
+    }
+
+    .highlight {
+      color: #00fff1;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(0, 255, 241, 0.5);
+    }
+
+    .emphasis {
+      color: #a259ff;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(162, 89, 255, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .week-section {
+        margin: 1rem;
+        padding: 2rem;
+      }
+      
+      .week-section h2 {
+        font-size: 2rem;
+      }
+      
+      .week-section h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animations -->
+  <div class="background-animations">
+    <div class="moving-gradient"></div>
+    <div class="pulsing-circles">
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+    </div>
+    <div class="rotating-shapes">
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+    </div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+  </div>
+
+  <nav class="navbar glassy">
+    <div class="logo neon-text">Solve<span class="accent">X</span></div>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="overview.html">Program Overview</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="week-main animate-fadein">
+    <div class="week-progress glassy">
+      <div class="progress-bar-bg"><div class="progress-bar neon-glow" id="progress-bar" style="width: 0%"></div></div>
+      <span id="progress-label">0% Complete</span>
+    </div>
+    <h1 class="neon-text">Week 8: From Research to Real-World Impact</h1>
+    <section class="week-section glassy animate-slideup" id="explanation-section">
+      <h2>🌍 WEEK 8: From Research to Real-World Impact</h2>
+      <h3>Purpose:</h3>
+      <p>Teach students how to connect their research to the real world and expand its reach.</p>
+      
+      <h3><span style="color: #00fff1;">📘</span> Explanation:</h3>
+      <p style="font-size: 1.1rem; line-height: 1.7; color: #e8e8ff; margin-bottom: 1.5rem;"><span style="color: #00fff1;">🌍</span> This final week focuses on the real-world impact of your research. You'll explore how your findings can make a difference in your community and beyond.</p>
+      
+      <p style="font-size: 1.05rem; color: #f0f0ff; margin-bottom: 1rem; font-weight: 500;">You'll learn about:</p>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">How research can influence policy and decision-making</li>
+        <li style="margin-bottom: 0.5rem;">Ways to share your findings with the broader community</li>
+        <li style="margin-bottom: 0.5rem;">The importance of continued learning and improvement</li>
+        <li style="margin-bottom: 0.5rem;">Planning future research projects</li>
+      </ul>
+      
+      <p style="font-size: 1.05rem; color: #f0f0ff; margin-bottom: 1rem; font-weight: 500;">Real-world applications include:</p>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">Presenting to school administrators or local officials</li>
+        <li style="margin-bottom: 0.5rem;">Publishing findings in school newsletters or local media</li>
+        <li style="margin-bottom: 0.5rem;">Collaborating with community organizations</li>
+        <li style="margin-bottom: 0.5rem;">Using your research to advocate for change</li>
+      </ul>
+      
+      <h3><span style="color: #00fff1;">🎯</span> Objective:</h3>
+      <p style="font-size: 1.1rem; line-height: 1.7; color: #e8e8ff; margin-bottom: 1.5rem;">Understand how your research can create positive change and plan for future investigations.</p>
+      
+      <h3><span style="color: #00fff1;">✅</span> How to Achieve It:</h3>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">Identify potential stakeholders for your research</li>
+        <li style="margin-bottom: 0.5rem;">Create a plan for sharing your findings</li>
+        <li style="margin-bottom: 0.5rem;">Reflect on your research journey</li>
+        <li style="margin-bottom: 0.5rem;">Brainstorm ideas for future research projects</li>
+      </ul>
+      
+      <h3><span style="color: #00fff1;">💬</span> Discussion Questions:</h3>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">How could your research findings benefit others?</li>
+        <li style="margin-bottom: 0.5rem;">What would you like to investigate next?</li>
+      </ul>
+      <button class="section-done-btn neon-glow" data-section="explanation">Mark Explanation as Done</button>
+    </section>
+    <section class="week-section glassy animate-slideup" id="quiz-section">
+      <h2>Quiz: Check Your Understanding</h2>
+      <form id="quiz-form">
+        <div class="quiz-q">
+          <span>1. What is one way to create real-world impact?</span>
+          <label><input type="radio" name="q1" value="A"> A) Hide your project in a drawer</label>
+          <label><input type="radio" name="q1" value="B"> B) Present it once and forget it</label>
+          <label><input type="radio" name="q1" value="C"> C) Share it with people or groups who need it</label>
+          <label><input type="radio" name="q1" value="D"> D) Delete your notes</label>
+        </div>
+        <div class="quiz-q">
+          <span>2. Why is it important to identify your audience?</span>
+          <label><input type="radio" name="q2" value="A"> A) So you know who to blame</label>
+          <label><input type="radio" name="q2" value="B"> B) To sell it for money</label>
+          <label><input type="radio" name="q2" value="C"> C) So your work is useful and relevant</label>
+          <label><input type="radio" name="q2" value="D"> D) To avoid feedback</label>
+        </div>
+        <div class="quiz-q">
+          <span>3. What is a sustainable solution?</span>
+          <label><input type="radio" name="q3" value="A"> A) One that lasts and works over time</label>
+          <label><input type="radio" name="q3" value="B"> B) One that's expensive</label>
+          <label><input type="radio" name="q3" value="C"> C) One that's temporary</label>
+          <label><input type="radio" name="q3" value="D"> D) One that only you understand</label>
+        </div>
+        <button type="submit" class="quiz-submit-btn neon-glow">Check Answers</button>
+      </form>
+      <div id="quiz-feedback"></div>
+      <button class="section-done-btn neon-glow" data-section="quiz">Mark Quiz as Done</button>
+    </section>
+    <section class="week-section glassy animate-slideup" id="flashcards-section">
+      <h2>Flashcards: Key Concepts</h2>
+      <div class="flashcards-container" id="flashcards-container">
+        <!-- Flashcards will be rendered here by JS -->
+      </div>
+      <button class="section-done-btn neon-glow" data-section="flashcards">Mark Flashcards as Done</button>
+    </section>
+    <section class="week-section glassy animate-slideup" id="tasks-section">
+      <h2>Real-Life Tasks</h2>
+      <ul class="tasks-list">
+        <li><label><input type="checkbox" class="task-checkbox" data-task="1"> Write a short summary of your project in 100 words. Focus on the problem, solution, and impact.</label></li>
+        <li><label><input type="checkbox" class="task-checkbox" data-task="2"> Identify one real person, group, or place that could benefit from your work.</label></li>
+        <li><label><input type="checkbox" class="task-checkbox" data-task="3"> Draft an email or message explaining your project and offering to share it.</label></li>
+        <li><label><input type="checkbox" class="task-checkbox" data-task="4"> Reflect on what you would do next if you had more time or support — write a "next steps" plan.</label></li>
+      </ul>
+      <button class="section-done-btn neon-glow" data-section="tasks">Mark Tasks as Done</button>
+    </section>
+    <div class="week-nav">
+      <a href="week7.html" class="nav-btn neon-glow">Previous: Week 7</a>
+      <a href="overview.html" class="nav-btn neon-glow">Back to Overview</a>
+    </div>
+  </main>
+  <footer class="footer glassy">
+    <span>© 2025 SolveX. All rights reserved.</span>
+  </footer>
+</body>
+</html>

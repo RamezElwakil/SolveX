@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - SciResearch8</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/background-animations.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script defer src="assets/js/main.js"></script>
+  <style>
+    /* Background Animations */
+    .background-animations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(0, 255, 241, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s linear infinite;
+    }
+
+    .floating-particle:nth-child(1) {
+      width: 4px;
+      height: 4px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+      animation-duration: 25s;
+    }
+
+    .floating-particle:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      top: 20%;
+      left: 80%;
+      animation-delay: 2s;
+      animation-duration: 30s;
+    }
+
+    .floating-particle:nth-child(3) {
+      width: 3px;
+      height: 3px;
+      top: 60%;
+      left: 20%;
+      animation-delay: 5s;
+      animation-duration: 22s;
+    }
+
+    .floating-particle:nth-child(4) {
+      width: 5px;
+      height: 5px;
+      top: 80%;
+      left: 70%;
+      animation-delay: 8s;
+      animation-duration: 28s;
+    }
+
+    .floating-particle:nth-child(5) {
+      width: 4px;
+      height: 4px;
+      top: 40%;
+      left: 90%;
+      animation-delay: 12s;
+      animation-duration: 35s;
+    }
+
+    .floating-particle:nth-child(6) {
+      width: 6px;
+      height: 6px;
+      top: 70%;
+      left: 5%;
+      animation-delay: 15s;
+      animation-duration: 26s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .moving-gradient {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(0, 255, 241, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(162, 89, 255, 0.1) 0%, transparent 50%);
+      animation: moveGradient 30s ease-in-out infinite;
+    }
+
+    @keyframes moveGradient {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      25% {
+        transform: translate(-30%, -70%) rotate(90deg);
+      }
+      50% {
+        transform: translate(-70%, -30%) rotate(180deg);
+      }
+      75% {
+        transform: translate(-20%, -80%) rotate(270deg);
+      }
+    }
+
+    .pulsing-circles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pulse-circle {
+      position: absolute;
+      border: 2px solid rgba(0, 255, 241, 0.2);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    .pulse-circle:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .pulse-circle:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 65%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .pulse-circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 25%;
+      animation-delay: 4s;
+    }
+
+    .pulse-circle:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 35%;
+      right: 25%;
+      animation-delay: 6s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.1;
+      }
+    }
+
+    .rotating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .rotating-shape {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(0, 255, 241, 0.3);
+      animation: rotate 15s linear infinite;
+    }
+
+    .rotating-shape:nth-child(1) {
+      top: 25%;
+      left: 85%;
+      border-radius: 50%;
+      animation-delay: 0s;
+    }
+
+    .rotating-shape:nth-child(2) {
+      top: 75%;
+      left: 15%;
+      transform: rotate(45deg);
+      animation-delay: 3s;
+    }
+
+    .rotating-shape:nth-child(3) {
+      top: 45%;
+      left: 5%;
+      border-radius: 50%;
+      animation-delay: 6s;
+    }
+
+    .rotating-shape:nth-child(4) {
+      top: 85%;
+      right: 20%;
+      transform: rotate(30deg);
+      animation-delay: 9s;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Contact Page Specific Styles */
+    .contact-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-content {
+      text-align: center;
+      z-index: 2;
+      opacity: 0;
+      animation: slideUpFade 1.5s ease-out 0.5s forwards;
+    }
+
+    @keyframes slideUpFade {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-form-container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 255, 241, 0.2);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem auto;
+      max-width: 600px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    /* Light pulses behind the form */
+    .light-pulse {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 255, 241, 0.3) 0%, transparent 70%);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .light-pulse:nth-child(1) {
+      width: 200px;
+      height: 200px;
+      top: -50px;
+      left: -50px;
+      animation-delay: 0s;
+    }
+
+    .light-pulse:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 50%;
+      right: -30px;
+      animation-delay: 1s;
+    }
+
+    .light-pulse:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      bottom: -40px;
+      left: 30%;
+      animation-delay: 2s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .form-group:nth-child(1) { animation-delay: 1.5s; }
+    .form-group:nth-child(2) { animation-delay: 1.7s; }
+    .form-group:nth-child(3) { animation-delay: 1.9s; }
+    .form-group:nth-child(4) { animation-delay: 2.1s; }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #f0f0ff;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(0, 255, 241, 0.3);
+      border-radius: 12px;
+      color: #e8e8ff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #00fff1;
+      box-shadow: 0 0 20px rgba(0, 255, 241, 0.3);
+      transform: scale(1.02);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, #00fff1, #a259ff);
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 2.3s forwards;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .submit-btn:hover::before {
+      left: 100%;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 255, 241, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .contact-content h1 {
+        font-size: 3.5rem;
+      }
+      
+      .contact-content p {
+        font-size: 1.2rem;
+      }
+      
+      .contact-form-container {
+        max-width: 500px;
+        padding: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+      
+      .contact-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .contact-form-container {
+        margin: 1.5rem;
+        padding: 2rem;
+        max-width: none;
+      }
+      
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+      
+      .form-label {
+        font-size: 1rem;
+      }
+      
+      .form-input, .form-textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
+      
+      .submit-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+      }
+      
+      .floating-particle:nth-child(1) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(2) { width: 4px; height: 4px; }
+      .floating-particle:nth-child(3) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(4) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(5) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(6) { width: 4px; height: 4px; }
+      
+      .pulse-circle:nth-child(1) { width: 60px; height: 60px; }
+      .pulse-circle:nth-child(2) { width: 80px; height: 80px; }
+      .pulse-circle:nth-child(3) { width: 50px; height: 50px; }
+      .pulse-circle:nth-child(4) { width: 70px; height: 70px; }
+      
+      .rotating-shape {
+        width: 25px;
+        height: 25px;
+      }
+      
+      .light-pulse:nth-child(1) { width: 120px; height: 120px; }
+      .light-pulse:nth-child(2) { width: 90px; height: 90px; }
+      .light-pulse:nth-child(3) { width: 110px; height: 110px; }
+    }
+
+    @media (max-width: 480px) {
+      .contact-content h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+      }
+      
+      .contact-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      .contact-form-container {
+        margin: 1rem 0.5rem;
+        padding: 1.5rem;
+      }
+      
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      
+      .form-label {
+        font-size: 0.9rem;
+      }
+      
+      .form-input, .form-textarea {
+        padding: 0.7rem;
+        font-size: 0.8rem;
+      }
+      
+      .form-textarea {
+        min-height: 100px;
+      }
+      
+      .submit-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      
+      .floating-particle:nth-child(1) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(2) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(3) { width: 1px; height: 1px; }
+      .floating-particle:nth-child(4) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(5) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(6) { width: 3px; height: 3px; }
+      
+      .pulse-circle:nth-child(1) { width: 40px; height: 40px; }
+      .pulse-circle:nth-child(2) { width: 60px; height: 60px; }
+      .pulse-circle:nth-child(3) { width: 35px; height: 35px; }
+      .pulse-circle:nth-child(4) { width: 50px; height: 50px; }
+      
+      .rotating-shape {
+        width: 20px;
+        height: 20px;
+      }
+      
+      .light-pulse:nth-child(1) { width: 80px; height: 80px; }
+      .light-pulse:nth-child(2) { width: 60px; height: 60px; }
+      .light-pulse:nth-child(3) { width: 70px; height: 70px; }
+    }
+
+    @media (max-width: 320px) {
+      .contact-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .contact-content p {
+        font-size: 0.8rem;
+      }
+      
+      .contact-form-container {
+        padding: 1rem;
+      }
+      
+      .form-label {
+        font-size: 0.8rem;
+      }
+      
+      .form-input, .form-textarea {
+        padding: 0.6rem;
+        font-size: 0.7rem;
+      }
+      
+      .submit-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Landscape orientation adjustments */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .contact-hero {
+        min-height: 100vh;
+        padding: 1rem 0;
+      }
+      
+      .contact-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .contact-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      .contact-form-container {
+        padding: 1.5rem;
+      }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .floating-particle {
+        transform: scale(0.8);
+      }
+      
+      .pulse-circle {
+        transform: scale(0.9);
+      }
+      
+      .rotating-shape {
+        transform: scale(0.8);
+      }
+      
+      .light-pulse {
+        transform: scale(0.9);
+      }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .floating-particle,
+      .pulse-circle,
+      .rotating-shape,
+      .moving-gradient,
+      .light-pulse {
+        animation: none;
+      }
+      
+      .contact-content,
+      .contact-form-container,
+      .form-group {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .submit-btn:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      
+      .submit-btn:active {
+        transform: scale(0.98);
+      }
+      
+      .form-input:focus, .form-textarea:focus {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animations -->
+  <div class="background-animations">
+    <div class="moving-gradient"></div>
+    <div class="pulsing-circles">
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+    </div>
+    <div class="rotating-shapes">
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+    </div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+  </div>
+
+  <nav class="navbar glassy">
+    <div class="logo neon-text">Solve<span class="accent">X</span></div>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="overview.html">Program Overview</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="contact-hero">
+    <div class="contact-content">
+      <h1 class="neon-text">Send Us a Message</h1>
+      <p style="font-size: 1.2rem; line-height: 1.7; color: #e8e8ff; margin-top: 1rem;">
+        Have questions about your research project? Need guidance? We're here to help!
+      </p>
+    </div>
+  </section>
+
+  <main class="contact-modern" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+    <div class="contact-form-container">
+      <!-- Light pulses behind the form -->
+      <div class="light-pulse"></div>
+      <div class="light-pulse"></div>
+      <div class="light-pulse"></div>
+      
+      <h2 style="color: #00fff1; margin-bottom: 2rem; text-align: center;">Get in Touch</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <select class="form-input" required>
+            <option value="">Select a topic</option>
+            <option value="mentorship">Request Mentorship</option>
+            <option value="project-help">Project Help</option>
+            <option value="general">General Question</option>
+            <option value="feedback">Feedback</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell us about your research project or question..." required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer glassy">
+    <span>© 2025 SolveX. All rights reserved.</span>
+  </footer>
+
+  <script>
+    // Form submission animation
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.querySelector('.submit-btn');
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.style.background = 'linear-gradient(45deg, #00ff88, #00fff1)';
+      
+      // Simulate sending
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Message Sent! ✓';
+        submitBtn.style.background = 'linear-gradient(45deg, #00ff88, #00cc88)';
+        
+        setTimeout(() => {
+          submitBtn.innerHTML = 'Send Message';
+          submitBtn.style.background = 'linear-gradient(45deg, #00fff1, #a259ff)';
+          document.getElementById('contactForm').reset();
+        }, 2000);
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 7 – Presenting and Evaluating | SciResearch8</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/background-animations.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/week7.js"></script>
+  <style>
+    /* Background Animations */
+    .background-animations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(0, 255, 241, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s linear infinite;
+    }
+
+    .floating-particle:nth-child(1) {
+      width: 4px;
+      height: 4px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+      animation-duration: 25s;
+    }
+
+    .floating-particle:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      top: 20%;
+      left: 80%;
+      animation-delay: 2s;
+      animation-duration: 30s;
+    }
+
+    .floating-particle:nth-child(3) {
+      width: 3px;
+      height: 3px;
+      top: 60%;
+      left: 20%;
+      animation-delay: 5s;
+      animation-duration: 22s;
+    }
+
+    .floating-particle:nth-child(4) {
+      width: 5px;
+      height: 5px;
+      top: 80%;
+      left: 70%;
+      animation-delay: 8s;
+      animation-duration: 28s;
+    }
+
+    .floating-particle:nth-child(5) {
+      width: 4px;
+      height: 4px;
+      top: 40%;
+      left: 90%;
+      animation-delay: 12s;
+      animation-duration: 35s;
+    }
+
+    .floating-particle:nth-child(6) {
+      width: 6px;
+      height: 6px;
+      top: 70%;
+      left: 5%;
+      animation-delay: 15s;
+      animation-duration: 26s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .moving-gradient {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(0, 255, 241, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(162, 89, 255, 0.1) 0%, transparent 50%);
+      animation: moveGradient 30s ease-in-out infinite;
+    }
+
+    @keyframes moveGradient {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      25% {
+        transform: translate(-30%, -70%) rotate(90deg);
+      }
+      50% {
+        transform: translate(-70%, -30%) rotate(180deg);
+      }
+      75% {
+        transform: translate(-20%, -80%) rotate(270deg);
+      }
+    }
+
+    .pulsing-circles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pulse-circle {
+      position: absolute;
+      border: 2px solid rgba(0, 255, 241, 0.2);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    .pulse-circle:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .pulse-circle:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 65%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .pulse-circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 25%;
+      animation-delay: 4s;
+    }
+
+    .pulse-circle:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 35%;
+      right: 25%;
+      animation-delay: 6s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.1;
+      }
+    }
+
+    .rotating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .rotating-shape {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(0, 255, 241, 0.3);
+      animation: rotate 15s linear infinite;
+    }
+
+    .rotating-shape:nth-child(1) {
+      top: 25%;
+      left: 85%;
+      border-radius: 50%;
+      animation-delay: 0s;
+    }
+
+    .rotating-shape:nth-child(2) {
+      top: 75%;
+      left: 15%;
+      transform: rotate(45deg);
+      animation-delay: 3s;
+    }
+
+    .rotating-shape:nth-child(3) {
+      top: 45%;
+      left: 5%;
+      border-radius: 50%;
+      animation-delay: 6s;
+    }
+
+    .rotating-shape:nth-child(4) {
+      top: 85%;
+      right: 20%;
+      transform: rotate(30deg);
+      animation-delay: 9s;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Week 7 Specific Styles */
+    .week-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .week-content {
+      text-align: center;
+      z-index: 2;
+      opacity: 0;
+      animation: slideUpFade 1.5s ease-out 0.5s forwards;
+    }
+
+    @keyframes slideUpFade {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .week-section {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 255, 241, 0.2);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .week-section h2 {
+      color: #00fff1;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(0, 255, 241, 0.5);
+    }
+
+    .week-section h3 {
+      color: #a259ff;
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      text-shadow: 0 0 15px rgba(162, 89, 255, 0.5);
+    }
+
+    .week-section p {
+      color: #e8e8ff;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(232, 232, 255, 0.3);
+    }
+
+    .week-section ul {
+      color: #e8e8ff;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+    }
+
+    .week-section li {
+      margin-bottom: 0.8rem;
+      text-shadow: 0 0 10px rgba(232, 232, 255, 0.3);
+    }
+
+    .highlight {
+      color: #00fff1;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(0, 255, 241, 0.5);
+    }
+
+    .emphasis {
+      color: #a259ff;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(162, 89, 255, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .week-section {
+        margin: 1rem;
+        padding: 2rem;
+      }
+      
+      .week-section h2 {
+        font-size: 2rem;
+      }
+      
+      .week-section h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animations -->
+  <div class="background-animations">
+    <div class="moving-gradient"></div>
+    <div class="pulsing-circles">
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+    </div>
+    <div class="rotating-shapes">
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+    </div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+  </div>
+
+  <nav class="navbar glassy">
+    <div class="logo neon-text">Solve<span class="accent">X</span></div>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="overview.html">Program Overview</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="week-main animate-fadein">
+    <div class="week-progress glassy">
+      <div class="progress-bar-bg"><div class="progress-bar neon-glow" id="progress-bar" style="width: 0%"></div></div>
+      <span id="progress-label">0% Complete</span>
+    </div>
+    <h1 class="neon-text">Week 7: Presenting and Evaluating</h1>
+    <section class="week-section glassy animate-slideup" id="explanation-section">
+      <h2><span style="color: #00fff1;">🎤</span> WEEK 7: Presenting and Evaluating Research</h2>
+      <h3><span style="color: #00fff1;">Purpose:</span></h3>
+      <p>Teach students to share their research and evaluate the work of others.</p>
+      
+      <h3><span style="color: #00fff1;">📘</span> Explanation:</h3>
+      <p style="font-size: 1.1rem; line-height: 1.7; color: #e8e8ff; margin-bottom: 1.5rem;"><span style="color: #00fff1;">🎤</span> This week is all about sharing your research findings with others. You'll learn how to present your work effectively and receive feedback from your peers.</p>
+      
+      <p style="font-size: 1.05rem; color: #f0f0ff; margin-bottom: 1rem; font-weight: 500;">You'll practice:</p>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">Creating engaging presentations</li>
+        <li style="margin-bottom: 0.5rem;">Public speaking and confidence building</li>
+        <li style="margin-bottom: 0.5rem;">Answering questions about your research</li>
+        <li style="margin-bottom: 0.5rem;">Giving and receiving constructive feedback</li>
+      </ul>
+      
+      <p style="font-size: 1.05rem; color: #f0f0ff; margin-bottom: 1rem; font-weight: 500;">Presentation skills include:</p>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">Clear organization of your ideas</li>
+        <li style="margin-bottom: 0.5rem;">Effective use of visual aids</li>
+        <li style="margin-bottom: 0.5rem;">Confident body language and voice projection</li>
+        <li style="margin-bottom: 0.5rem;">Handling audience questions professionally</li>
+      </ul>
+      
+      <h3><span style="color: #00fff1;">💡</span> Example Presentations:</h3>
+      <p style="font-size: 1.05rem; color: #f0f0ff; margin-bottom: 1rem; font-weight: 500;">View real presentation examples to understand:</p>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1rem;">
+        <li style="margin-bottom: 0.5rem;">How to structure your talk</li>
+        <li style="margin-bottom: 0.5rem;">How to explain visuals effectively</li>
+        <li style="margin-bottom: 0.5rem;">How to handle questions from the audience</li>
+      </ul>
+      
+      <p><strong><span style="color: #00fff1;">📊</span> See My Example Presentations:</strong> 
+        <a href="https://drive.google.com/drive/folders/1BiXYpRghcvzQsbdjq-uKGKKNqRH1jmCx?usp=sharing" target="_blank" class="neon-glow" style="color: #00fff1; text-decoration: none; padding: 0.5rem 1rem; border-radius: 8px; display: inline-block; margin-top: 0.5rem;">Click Here to View Presentations</a>
+      </p>
+      
+      <h3><span style="color: #00fff1;">🎯</span> Objective:</h3>
+      <p style="font-size: 1.1rem; line-height: 1.7; color: #e8e8ff; margin-bottom: 1.5rem;">Present your research findings confidently and receive valuable feedback from peers.</p>
+      
+      <h3><span style="color: #00fff1;">✅</span> How to Achieve It:</h3>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">Prepare a clear, concise presentation</li>
+        <li style="margin-bottom: 0.5rem;">Practice your delivery multiple times</li>
+        <li style="margin-bottom: 0.5rem;">Present to your class or group</li>
+        <li style="margin-bottom: 0.5rem;">Participate in peer feedback sessions</li>
+      </ul>
+      
+      <h3><span style="color: #00fff1;">💬</span> Discussion Questions:</h3>
+      <ul style="color: #e8e8ff; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.5rem;">What was the most challenging part of presenting your research?</li>
+        <li style="margin-bottom: 0.5rem;">How did the feedback help you improve your work?</li>
+      </ul>
+      <button class="section-done-btn neon-glow" data-section="explanation">Mark Explanation as Done</button>
+    </section>
+    <section class="week-section glassy animate-slideup" id="quiz-section">
+      <h2>Quiz: Check Your Understanding</h2>
+      <form id="quiz-form">
+        <div class="quiz-q">
+          <span>1. What should a good poster include?</span>
+          <label><input type="radio" name="q1" value="A"> A) Your name only</label>
+          <label><input type="radio" name="q1" value="B"> B) A list of friends</label>
+          <label><input type="radio" name="q1" value="C"> C) Question, method, results, and conclusion</label>
+          <label><input type="radio" name="q1" value="D"> D) Memes</label>
+        </div>
+        <div class="quiz-q">
+          <span>2. Why should you evaluate your project?</span>
+          <label><input type="radio" name="q2" value="A"> A) To find errors and improve</label>
+          <label><input type="radio" name="q2" value="B"> B) To make it shorter</label>
+          <label><input type="radio" name="q2" value="C"> C) To brag</label>
+          <label><input type="radio" name="q2" value="D"> D) To get out of doing more work</label>
+        </div>
+        <button type="submit" class="quiz-submit-btn neon-glow">Check Answers</button>
+      </form>
+      <div id="quiz-feedback"></div>
+      <button class="section-done-btn neon-glow" data-section="quiz">Mark Quiz as Done</button>
+    </section>
+    <section class="week-section glassy animate-slideup" id="flashcards-section">
+      <h2>Flashcards: Key Concepts</h2>
+      <div class="flashcards-container" id="flashcards-container">
+        <!-- Flashcards will be rendered here by JS -->
+      </div>
+      <button class="section-done-btn neon-glow" data-section="flashcards">Mark Flashcards as Done</button>
+    </section>
+    <section class="week-section glassy animate-slideup" id="tasks-section">
+      <h2>Real-Life Tasks</h2>
+      <ul class="tasks-list">
+        <li><label><input type="checkbox" class="task-checkbox" data-task="1"> Create a presentation or poster of your project.</label></li>
+        <li><label><input type="checkbox" class="task-checkbox" data-task="2"> Share it with a classmate, teacher, or family member.</label></li>
+        <li><label><input type="checkbox" class="task-checkbox" data-task="3"> Ask them to give feedback using a checklist.</label></li>
+        <li><label><input type="checkbox" class="task-checkbox" data-task="4"> Revise your work based on their suggestions.</label></li>
+      </ul>
+      <button class="section-done-btn neon-glow" data-section="tasks">Mark Tasks as Done</button>
+    </section>
+    <div class="week-nav">
+      <a href="week6.html" class="nav-btn neon-glow">Previous: Week 6</a>
+      <a href="overview.html" class="nav-btn neon-glow">Back to Overview</a>
+      <a href="week8.html" class="nav-btn neon-glow">Next: Week 8</a>
+    </div>
+  </main>
+  <footer class="footer glassy">
+    <span>© 2025 SolveX. All rights reserved.</span>
+  </footer>
+</body>
+</html>

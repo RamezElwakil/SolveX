@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Overview - SciResearch8</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/background-animations.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script defer src="assets/js/main.js"></script>
+  <style>
+    /* Background Animations */
+    .background-animations {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(0, 255, 241, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s linear infinite;
+    }
+
+    .floating-particle:nth-child(1) {
+      width: 4px;
+      height: 4px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+      animation-duration: 25s;
+    }
+
+    .floating-particle:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      top: 20%;
+      left: 80%;
+      animation-delay: 2s;
+      animation-duration: 30s;
+    }
+
+    .floating-particle:nth-child(3) {
+      width: 3px;
+      height: 3px;
+      top: 60%;
+      left: 20%;
+      animation-delay: 5s;
+      animation-duration: 22s;
+    }
+
+    .floating-particle:nth-child(4) {
+      width: 5px;
+      height: 5px;
+      top: 80%;
+      left: 70%;
+      animation-delay: 8s;
+      animation-duration: 28s;
+    }
+
+    .floating-particle:nth-child(5) {
+      width: 4px;
+      height: 4px;
+      top: 40%;
+      left: 90%;
+      animation-delay: 12s;
+      animation-duration: 35s;
+    }
+
+    .floating-particle:nth-child(6) {
+      width: 6px;
+      height: 6px;
+      top: 70%;
+      left: 5%;
+      animation-delay: 15s;
+      animation-duration: 26s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .moving-gradient {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(0, 255, 241, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(162, 89, 255, 0.1) 0%, transparent 50%);
+      animation: moveGradient 30s ease-in-out infinite;
+    }
+
+    @keyframes moveGradient {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      25% {
+        transform: translate(-30%, -70%) rotate(90deg);
+      }
+      50% {
+        transform: translate(-70%, -30%) rotate(180deg);
+      }
+      75% {
+        transform: translate(-20%, -80%) rotate(270deg);
+      }
+    }
+
+    .pulsing-circles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pulse-circle {
+      position: absolute;
+      border: 2px solid rgba(0, 255, 241, 0.2);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    .pulse-circle:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .pulse-circle:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 65%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .pulse-circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 25%;
+      animation-delay: 4s;
+    }
+
+    .pulse-circle:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 35%;
+      right: 25%;
+      animation-delay: 6s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.1;
+      }
+    }
+
+    .rotating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .rotating-shape {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(0, 255, 241, 0.3);
+      animation: rotate 15s linear infinite;
+    }
+
+    .rotating-shape:nth-child(1) {
+      top: 25%;
+      left: 85%;
+      border-radius: 50%;
+      animation-delay: 0s;
+    }
+
+    .rotating-shape:nth-child(2) {
+      top: 75%;
+      left: 15%;
+      transform: rotate(45deg);
+      animation-delay: 3s;
+    }
+
+    .rotating-shape:nth-child(3) {
+      top: 45%;
+      left: 5%;
+      border-radius: 50%;
+      animation-delay: 6s;
+    }
+
+    .rotating-shape:nth-child(4) {
+      top: 85%;
+      right: 20%;
+      transform: rotate(30deg);
+      animation-delay: 9s;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Overview Page Specific Styles */
+    .overview-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-content {
+      text-align: center;
+      z-index: 2;
+      opacity: 0;
+      animation: slideUpFade 1.5s ease-out 0.5s forwards;
+    }
+
+    @keyframes slideUpFade {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .overview-section {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 255, 241, 0.2);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .overview-section h2 {
+      color: #00fff1;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(0, 255, 241, 0.5);
+    }
+
+    .overview-section h3 {
+      color: #a259ff;
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      text-shadow: 0 0 15px rgba(162, 89, 255, 0.5);
+    }
+
+    .overview-section p {
+      color: #e8e8ff;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px rgba(232, 232, 255, 0.3);
+    }
+
+    .overview-section ul {
+      color: #e8e8ff;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+    }
+
+    .overview-section li {
+      margin-bottom: 0.8rem;
+      text-shadow: 0 0 10px rgba(232, 232, 255, 0.3);
+    }
+
+    .highlight {
+      color: #00fff1;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(0, 255, 241, 0.5);
+    }
+
+    .emphasis {
+      color: #a259ff;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(162, 89, 255, 0.5);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .overview-content h1 {
+        font-size: 3.5rem;
+      }
+      
+      .overview-content p {
+        font-size: 1.2rem;
+      }
+      
+      .overview-section {
+        max-width: 700px;
+        padding: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .overview-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+      
+      .overview-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .overview-section {
+        margin: 1.5rem;
+        padding: 2rem;
+        max-width: none;
+      }
+      
+      .overview-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      .overview-section h3 {
+        font-size: 1.5rem;
+        margin: 1.5rem 0 0.8rem 0;
+      }
+      
+      .overview-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+      }
+      
+      .overview-section ul {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 1.2rem 0;
+        padding-left: 1.5rem;
+      }
+      
+      .overview-section li {
+        margin-bottom: 0.6rem;
+      }
+      
+      .floating-particle:nth-child(1) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(2) { width: 4px; height: 4px; }
+      .floating-particle:nth-child(3) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(4) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(5) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(6) { width: 4px; height: 4px; }
+      
+      .pulse-circle:nth-child(1) { width: 60px; height: 60px; }
+      .pulse-circle:nth-child(2) { width: 80px; height: 80px; }
+      .pulse-circle:nth-child(3) { width: 50px; height: 50px; }
+      .pulse-circle:nth-child(4) { width: 70px; height: 70px; }
+      
+      .rotating-shape {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .overview-content h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+      }
+      
+      .overview-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      .overview-section {
+        margin: 1rem 0.5rem;
+        padding: 1.5rem;
+      }
+      
+      .overview-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .overview-section h3 {
+        font-size: 1.3rem;
+        margin: 1.2rem 0 0.6rem 0;
+      }
+      
+      .overview-section p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+      }
+      
+      .overview-section ul {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 1rem 0;
+        padding-left: 1.2rem;
+      }
+      
+      .overview-section li {
+        margin-bottom: 0.5rem;
+      }
+      
+      .floating-particle:nth-child(1) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(2) { width: 3px; height: 3px; }
+      .floating-particle:nth-child(3) { width: 1px; height: 1px; }
+      .floating-particle:nth-child(4) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(5) { width: 2px; height: 2px; }
+      .floating-particle:nth-child(6) { width: 3px; height: 3px; }
+      
+      .pulse-circle:nth-child(1) { width: 40px; height: 40px; }
+      .pulse-circle:nth-child(2) { width: 60px; height: 60px; }
+      .pulse-circle:nth-child(3) { width: 35px; height: 35px; }
+      .pulse-circle:nth-child(4) { width: 50px; height: 50px; }
+      
+      .rotating-shape {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .overview-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .overview-content p {
+        font-size: 0.8rem;
+      }
+      
+      .overview-section {
+        padding: 1rem;
+      }
+      
+      .overview-section h2 {
+        font-size: 1.6rem;
+      }
+      
+      .overview-section h3 {
+        font-size: 1.2rem;
+      }
+      
+      .overview-section p {
+        font-size: 0.8rem;
+      }
+      
+      .overview-section ul {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Landscape orientation adjustments */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .overview-hero {
+        min-height: 100vh;
+        padding: 1rem 0;
+      }
+      
+      .overview-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .overview-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      .overview-section {
+        padding: 1.5rem;
+      }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .floating-particle {
+        transform: scale(0.8);
+      }
+      
+      .pulse-circle {
+        transform: scale(0.9);
+      }
+      
+      .rotating-shape {
+        transform: scale(0.8);
+      }
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .floating-particle,
+      .pulse-circle,
+      .rotating-shape,
+      .moving-gradient {
+        animation: none;
+      }
+      
+      .overview-content,
+      .overview-section {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .overview-section:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Animations -->
+  <div class="background-animations">
+    <div class="moving-gradient"></div>
+    <div class="pulsing-circles">
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+      <div class="pulse-circle"></div>
+    </div>
+    <div class="rotating-shapes">
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+      <div class="rotating-shape"></div>
+    </div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+    <div class="floating-particle"></div>
+  </div>
+
+  <nav class="navbar glassy">
+    <div class="logo neon-text">Solve<span class="accent">X</span></div>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="overview.html" class="active">Program Overview</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="overview-modern animate-fadein">
+    <h1 class="neon-text">8-Week Program Roadmap</h1>
+    <p class="lead">A modern, hands-on journey from curiosity to real-world research. Each week builds your skills and confidence step by step.</p>
+    <div class="weeks-grid">
+      <div class="week-card glassy">
+        <div class="week-header"><span class="week-badge neon-text">1</span> Foundations of Scientific Research</div>
+        <div class="week-desc">Students are introduced to the core principles of scientific research. This week focuses on understanding what research is, why it matters, and how it shapes the world around us. Learners will explore real examples of impactful student-led projects and begin thinking critically about problems they care about.</div>
+        <div class="week-outcomes"><b>Key Outcomes:</b> Understand the purpose of research and identify a topic of personal or community relevance.</div>
+        <a href="week1.html" class="nav-btn neon-glow">View Week</a>
+      </div>
+      <div class="week-card glassy">
+        <div class="week-header"><span class="week-badge neon-text">2</span> From Curiosity to a Research Question</div>
+        <div class="week-desc">This week guides students through the process of refining a general interest into a specific, actionable research question. They'll learn how to spot meaningful problems, write clear problem statements, and explore simple frameworks for problem-solving.</div>
+        <div class="week-outcomes"><b>Key Outcomes:</b> Formulate a clear and testable research question.</div>
+        <a href="week2.html" class="nav-btn neon-glow">View Week</a>
+      </div>
+      <div class="week-card glassy">
+        <div class="week-header"><span class="week-badge neon-text">3</span> Investigating What’s Been Done</div>
+        <div class="week-desc">Students will dive into existing knowledge about their topic, learning how to conduct a basic literature review. They’ll explore how other researchers, students, and professionals have approached similar problems, and use that knowledge to shape their own approach.</div>
+        <div class="week-outcomes"><b>Key Outcomes:</b> Build context for the project by summarizing prior research and identifying gaps.</div>
+        <a href="week3.html" class="nav-btn neon-glow">View Week</a>
+      </div>
+      <div class="week-card glassy">
+        <div class="week-header"><span class="week-badge neon-text">4</span> Designing the Investigation</div>
+        <div class="week-desc">In this week, students learn how to plan their experiment or investigation. They'll understand types of variables, how to make fair comparisons, and how to collect meaningful data. They'll also create a basic experimental or data collection plan.</div>
+        <div class="week-outcomes"><b>Key Outcomes:</b> Create a step-by-step plan for gathering and analyzing data.</div>
+        <a href="week4.html" class="nav-btn neon-glow">View Week</a>
+      </div>
+      <div class="week-card glassy">
+        <div class="week-header"><span class="week-badge neon-text">5</span> Building and Testing the Solution</div>
+        <div class="week-desc">This hands-on week focuses on prototyping and beginning the data collection process. Students are introduced to tools and platforms like Arduino (if relevant) and practice running small-scale tests of their solution. They’ll analyze early data and adjust their plan if needed.</div>
+        <div class="week-outcomes"><b>Key Outcomes:</b> Build a working prototype or initial solution and collect preliminary results.</div>
+        <a href="week5.html" class="nav-btn neon-glow">View Week</a>
+      </div>
+      <div class="week-card glassy">
+        <div class="week-header"><span class="week-badge neon-text">6</span> Presenting and Evaluating</div>
+        <div class="week-desc">Students will learn how to present their research in a professional and understandable way. They’ll create posters or digital presentations and learn how to evaluate their findings using test plans. This helps them practice communicating complex ideas simply.</div>
+        <div class="week-outcomes"><b>Key Outcomes:</b> Create a visual and verbal explanation of the project and test outcomes.</div>
+        <a href="week6.html" class="nav-btn neon-glow">View Week</a>
+      </div>
+      <div class="week-card glassy">
+        <div class="week-header"><span class="week-badge neon-text">7</span> Impact and Innovation</div>
+        <div class="week-desc">Now students connect their research to real-world challenges. They'll explore how their work can align with global goals like the UN SDGs, and how to structure their idea into a basic innovation model using tools like the Business Model Canvas.</div>
+        <div class="week-outcomes"><b>Key Outcomes:</b> Define the social or practical value of the project and map out its application.</div>
+        <a href="week7.html" class="nav-btn neon-glow">View Week</a>
+      </div>
+      <div class="week-card glassy">
+        <div class="week-header"><span class="week-badge neon-text">8</span> Presentation & Next Steps</div>
+        <div class="week-desc">Wrap up your project, reflect on your journey, and learn how to share your work with a wider audience. Get tips for competitions, publishing, and future research opportunities.</div>
+        <div class="week-outcomes"><b>Key Outcomes:</b> Confidently present your research and plan your next steps as a young scientist.</div>
+        <a href="week8.html" class="nav-btn neon-glow">View Week</a>
+      </div>
+    </div>
+  </main>
+  <footer class="footer glassy">
+    <span>© 2025 SolveX. All rights reserved.</span>
+  </footer>
+</body>
+</html>
